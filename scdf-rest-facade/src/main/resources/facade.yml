@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scdf-rest-facade
+  labels:
+    app: scdf-rest-facade
+    type: scdf-facade
+    component: scdf-rest-facade
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scdf-rest-facade
+  template:
+    metadata:
+      labels:
+        app: scdf-rest-facade
+        component: scdf-rest-facade
+    spec:
+      containers:
+        - name: scdf-rest-facade
+          image: scdf-rest-facade:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080

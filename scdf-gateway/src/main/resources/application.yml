@@ -1,0 +1,15 @@
+server:
+  port: 9090
+---
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: publish-data
+          uri: http://scdf-rest-facade.default.svc.cluster.local
+          predicates:
+            - Path=/scdf-facade/publish
+        - id: publish-status
+          uri: http://scdf-rest-facade.default.svc.cluster.local
+          predicates:
+            - Path=/scdf-facade/status

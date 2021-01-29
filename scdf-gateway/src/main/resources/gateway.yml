@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scdf-gateway
+  labels:
+    app: scdf-gateway
+    type: scdf-gateway
+    component: scdf-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scdf-gateway
+  template:
+    metadata:
+      labels:
+        app: scdf-gateway
+        component: scdf-gateway
+    spec:
+      containers:
+        - name: scdf-gateway
+          image: scdf-gateway:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9090
