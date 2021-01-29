@@ -300,4 +300,4 @@ kubectl delete all,cm -l app=scdf-server
 kubectl delete role scdf-role
 kubectl delete rolebinding scdf-rb
 kubectl delete serviceaccount scdf-sa
-````
+```
