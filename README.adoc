@@ -11,7 +11,7 @@ In this demo, we provide a facade application in which we isolate all the REST c
 Then using Spring Cloud Gateway proxy mechanism, the clients interact with SCDF.
 
 There are several benefits for an enterprise to centralize access to the data flow system using a proxy.
-Here are some.
+Here are a few.
 
 ### Security
 Enterprises can deploy the Spring Cloud Data Flow clusters behind a firewall and then provide access to them only using the gateway.
@@ -19,11 +19,11 @@ This way, the security concerns can be centralized only at the gateway level.
 
 ### Rate limiting
 
-Spring Cloud Gateway provides built in rate limiting API's using which the number of times SCDF API's access can be controlled.
+Spring Cloud Gateway provides built in rate limiting API's using which the SCDF API's access can be controlled.
 
 ### Fallback mechanism
 
-If SCDF is down, SCGateway can introduce fallback mechanisms.
+If SCDF is down, SC Gateway can introduce fallback mechanisms.
 
 ## What are the applications provided?
 
@@ -50,7 +50,7 @@ The crux of this demo is centered around the facade code in `scdf-rest-facade` p
 
 In this demo, we deploy Spring Cloud Data Flow on Kubernetes using minikube.
 
-Thats where we start.
+That's where we start.
 
 If you don't have minikube running, go ahead and start it.
 
@@ -107,8 +107,8 @@ service/kafka-broker   ClusterIP      None             <none>          9092/TCP 
 service/kafka-zk       ClusterIP      10.99.118.137    <none>          2181/TCP,2888/TCP,3888/TCP   74s
 service/kubernetes     ClusterIP      10.96.0.1        <none>          443/TCP                      15d
 service/mysql          ClusterIP      10.97.19.132     <none>          3306/TCP                     74s
-service/scdf-server    LoadBalancer   10.109.223.184   192.168.99.97   80:30709/TCP                 72s
-service/skipper        LoadBalancer   10.103.219.69    192.168.99.96   80:30516/TCP                 73s
+service/scdf-server    ClusterIP      10.109.223.184   <none>          80:30709/TCP                 72s
+service/skipper        ClusterIP      10.103.219.69    <none>          80:30516/TCP                 73s
 
 NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/kafka-zk      1/1     1            1           74s
@@ -185,8 +185,8 @@ service/kubernetes         ClusterIP      10.96.0.1        <none>          443/T
 service/mysql              ClusterIP      10.97.19.132     <none>          3306/TCP                     11m
 service/scdf-gateway       NodePort       10.96.128.65     <none>          80:30850/TCP                 83s
 service/scdf-rest-facade   NodePort       10.105.239.30    <none>          80:32581/TCP                 2m31s
-service/scdf-server        LoadBalancer   10.109.223.184   192.168.99.97   80:30709/TCP                 11m
-service/skipper            LoadBalancer   10.103.219.69    192.168.99.96   80:30516/TCP                 11m
+service/scdf-server        ClusterIP      10.109.223.184   <none>          80:30709/TCP                 72s
+service/skipper            ClusterIP      10.103.219.69    <none>          80:30516/TCP                 73s
 
 NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/kafka-zk           1/1     1            1           11m
